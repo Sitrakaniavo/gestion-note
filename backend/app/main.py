@@ -4,11 +4,11 @@ from app.database import engine, Base
 import app.models
 from app.routers import student
 
-app.include_router(student.router)
 
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Gestion Note API")
+app.include_router(student.router)
 
 app.add_middleware(
     CORSMiddleware,
